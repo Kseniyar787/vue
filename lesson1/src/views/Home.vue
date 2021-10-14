@@ -52,7 +52,7 @@ export default {
       },
 
       division (nub1, nub2) { 
-       /* 1 вариант второй - выше  if (nub2 === 0) this.result = 'На 0 делить нельзя'; */
+       /* 1 вариант второй -выше  if (nub2 === 0) this.result = 'На 0 делить нельзя'; */
        if (this.isActive === true);
        this.result = Math.floor(nub1 / nub2);
       },
