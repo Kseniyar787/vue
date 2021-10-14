@@ -47,8 +47,7 @@ export default {
       check (nub2) {
         if (nub2 === 0) {
         this.isActive = false;
-       } else this.isActive = true;
-         
+       } else this.isActive = true;    
       },
 
       division (nub1, nub2) { 
