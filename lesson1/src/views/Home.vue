@@ -31,6 +31,7 @@ export default {
         isActive: true
       }
   },
+  
      methods: {
       sum (nub1, nub2) {
        this.result = nub1 + nub2;
