@@ -14,22 +14,25 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+/* // @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue' */
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  },
+  // name: 'Home',
+  // components: {
+  //  HelloWorld
+  // },
 
   data () {
   return {
-        numb1:1,
-        numb2:1,
+        numb1:0,
+        numb2:0,
         result:0,
         isActive: true
       }
+  },
+  mounted () {
+    this.check(this.numb2);
   },
 
      methods: {
@@ -52,7 +55,7 @@ export default {
       },
 
       division (nub1, nub2) { 
-       /* 1 вариант второй -выше  if (nub2 === 0) this.result = 'На 0 делить нельзя'; */
+       /* 1 вариант второй - выше  if (nub2 === 0) this.result = 'На 0 делить нельзя'; */
        if (this.isActive === true);
        this.result = Math.floor(nub1 / nub2);
       },
