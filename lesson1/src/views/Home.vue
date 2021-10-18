@@ -25,8 +25,8 @@ export default {
 
   data () {
   return {
-        numb1:0,
-        numb2:0,
+        numb1:1,
+        numb2:1,
         result:0,
         isActive: true
       }
