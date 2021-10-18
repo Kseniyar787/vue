@@ -14,14 +14,14 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+/* // @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue' */
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  },
+  // name: 'Home',
+  // components: {
+  //  HelloWorld
+  // },
 
   data () {
   return {
@@ -30,6 +30,9 @@ export default {
         result:0,
         isActive: true
       }
+  },
+  mounted () {
+    this.check(this.numb2);
   },
 
      methods: {
