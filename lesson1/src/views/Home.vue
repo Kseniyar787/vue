@@ -25,13 +25,15 @@ export default {
 
   data () {
   return {
-        numb1:1,
-        numb2:1,
+        numb1:0,
+        numb2:0,
         result:0,
         isActive: true
       }
   },
-
+mounted () {
+    this.check(this.numb2);
+  },
      methods: {
       sum (nub1, nub2) {
        this.result = nub1 + nub2;
