@@ -31,7 +31,9 @@ export default {
         isActive: true
       }
   },
-
+mounted () {
+    this.check(this.numb2);
+  },
      methods: {
       sum (nub1, nub2) {
        this.result = nub1 + nub2;
@@ -48,12 +50,11 @@ export default {
       check (nub2) {
         if (nub2 === 0) {
         this.isActive = false;
-       } else this.isActive = true;
-         
+       } else this.isActive = true;    
       },
 
       division (nub1, nub2) { 
-       /* 1 вариант  if (nub2 === 0) this.result = 'На 0 делить нельзя'; */
+       /* 1 вариант второй -выше  if (nub2 === 0) this.result = 'На 0 делить нельзя'; */
        if (this.isActive === true);
        this.result = Math.floor(nub1 / nub2);
       },
