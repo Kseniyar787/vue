@@ -45,11 +45,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btnShowForm {
-    background: #a4cbdb;
-    margin: 20px 0 20px 20px;
-    border: 1px solid #79adc3;
-}
 .form {
   margin-bottom: 20px;
   width: 50px;

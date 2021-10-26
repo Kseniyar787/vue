@@ -5,7 +5,7 @@
         <div :class="[$style.header]">My personal costs</div>
       </header>
       <main>
-        <button class="btnShowForm" @click="showForm = !showForm">ADD NEW COST +</button>
+        <button :class="[$style.btnShowForm]" @click="showForm = !showForm">ADD NEW COST +</button>
         <add-payment-form @addNewPayment="addDataToPaymentList"  v-show="showForm"/>
         <payments-display :items="paymentList"/>
         <pagination/>
@@ -64,7 +64,11 @@ export default {
 </script>
 
 <style lang="scss" module>
-
+.btnShowForm {
+    background: #a4cbdb;
+    margin: 20px 0 20px 20px;
+    border: 1px solid #79adc3;
+}
 .wrapper {
   background: #f5f5f5;
 }
