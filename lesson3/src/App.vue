@@ -7,8 +7,12 @@
       <main>
         <button :class="[$style.btnShowForm]" @click="showForm = !showForm">ADD NEW COST +</button>
         <add-payment-form @addNewPayment="addDataToPaymentList"  v-show="showForm"/>
-        <payments-display :items="paymentList"/>
-        <pagination/>
+        <payments-display :items="currentPaymentList"/>
+        <pagination :items="paymentList"
+        @pageDataChanged="showData"
+        :countOfRow="countOfRow" 
+        :curPage="page"
+        />
       </main>
     </div>
   </div>
@@ -29,9 +33,17 @@ export default {
   data() {
     return {
       paymentList: [],
-      showForm: false
+      showForm: false,
+      countOfRow: 10,
+      page: 1
     };
   },
+   computed: {
+      currentPaymentList() {
+          const bindex = this.countOfRow * (this.page - 1);
+          return this.paymentList.slice(bindex, bindex + this.countOfRow);
+      }
+    },
   methods: {
     fetchData() {
       return [
@@ -52,9 +64,12 @@ export default {
         }
       ];
     },
-    addDataToPaymentList(item) {
-      this.paymentList.push(item)
 
+    addDataToPaymentList(item) {
+      this.paymentList.push(item);
+    },
+    showData(page) {
+        this.page = page;
     }
   },
   created() {
