@@ -27,6 +27,10 @@ module.exports = {
     "space-before-function-paren": ["error", "never"],
     "eol-last": 0,
     "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+    // 'no-console': 'off',
+    // 'no-debugger': 'off'
+    quotes: [2, "backtick", "avoid-escape"],
+    quotes: [2, "single", "avoid-escape"]
   },
 
   'extends': [

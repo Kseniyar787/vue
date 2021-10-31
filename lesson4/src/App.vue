@@ -22,6 +22,7 @@
 import AddPaymentForm from './components/AddPaymentForm.vue';
 import PaymentsDisplay from './components/PaymentsDisplay.vue';
 import Pagination from './components/Pagination.vue';
+import { mapMutations, mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'App',
@@ -32,48 +33,43 @@ export default {
   },
   data() {
     return {
-      paymentList: [],
       showForm: false,
-      countOfRow: 10,
+      countOfRow: 3,
       page: 1
     };
   },
-   computed: {
-      currentPaymentList() {
-          const bindex = this.countOfRow * (this.page - 1);
-          return this.paymentList.slice(bindex, bindex + this.countOfRow);
-      }
-    },
-  methods: {
-    fetchData() {
-      return [
-        {
-          date: '28.03.2020',
-          category: 'Food',
-          value: 169
-        },
-        {
-          date: '24.03.2020',
-          category: 'Transport',
-          value: 360
-        },
-        {
-          date: '24.03.2020',
-          category: 'Food',
-          value: 532
+    computed: {
+       ...mapGetters({
+      paymentList: 'getPaymentsList'
+    }),
+        currentPaymentList() {
+            // const bindex = this.countOfRow * (this.page - 1);
+            const bindex = this.paymentList.findIndex(el => el.ordernum === (this.page - 1) * this.countOfRow)
+            console.log(bindex);
+            return this.paymentList.slice(bindex, bindex + this.countOfRow);
         }
-      ];
-    },
+     },
+  methods: {
+     ...mapMutations({
+      myMutationName: 'setPaymentListData',
+      myMutationNameFiltred: 'addPaymentsListData'
+    }),
+     ...mapActions({
+      fetchData: 'fetchData'
+     }),
 
-    addDataToPaymentList(item) {
+ addDataToPaymentList(item) {
       this.paymentList.push(item);
     },
     showData(page) {
         this.page = page;
+        this.fetchData(page);
     }
   },
   created() {
-    this.paymentList = this.fetchData();
+    // console.log(this.fetchData());
+    // this.myMutationName(this.fetchData()); 
+    this.fetchData(this.page);
   }
 };
 </script>

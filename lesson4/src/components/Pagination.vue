@@ -7,6 +7,8 @@
 </template>
 
 <script>
+// import { mapMutations, mapGetters, mapActions } from 'vuex';
+
 export default {
     name: 'Pagination',
     props: {
@@ -33,7 +35,7 @@ export default {
     },
     computed: {
         pages() {
-            return Math.ceil(this.items.length / this.countOfRow);
+            return Math.ceil(9 / this.countOfRow);
         }
     }
 };
